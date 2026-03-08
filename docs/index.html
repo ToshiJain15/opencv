@@ -4,39 +4,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OpenCV Projects Showcase</title>
-    <meta name="description" content="A collection of computer vision projects using OpenCV and Python.">
+    <title>Vision Intelligence | OpenCV Portfolio</title>
+    <meta name="description"
+        content="A curated collection of experimental computer vision projects using OpenCV and Python.">
+
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
-    <header>
-        <div class="container" id="header-container">
-            <h1 class="title-glow">Vision Intelligence</h1>
-            <p class="subtitle">Exploring the frontiers of computer vision with OpenCV and Python. From face detection
-                to social distancing monitoring.</p>
-        </div>
+
+    <header class="container">
+        <h1 class="hero-title">Vision Intelligence</h1>
+        <p class="hero-subtitle">Pushing the boundaries of perception through algorithmic code. A specialized workspace
+            for computer vision, real-time analytics, and social geometry.</p>
     </header>
 
     <main class="container">
-        <div class="project-grid" id="project-list">
+        <div class="project-grid">
+
             <!-- Project 1 -->
             <article class="project-card">
-                <img src="assets/face_detection.png" alt="Face Detection" class="card-image">
+                <div class="card-img-wrapper">
+                    <img src="assets/face_detection.png" alt="Face Detection" class="card-image">
+                    <div class="card-overlay"></div>
+                </div>
                 <div class="card-content">
-                    <h2 class="card-title">Face Detection</h2>
-                    <p class="card-description">A fundamental computer vision task implementing Haar Cascade Classifiers
-                        to detect and track human faces in real-time images.</p>
+                    <h2 class="card-title">Face Discovery</h2>
+                    <p class="card-description">Precision face identification using optimized Haar Cascade hierarchies.
+                        Designed for individual and group detection in diverse lighting environments.</p>
                     <div class="card-actions">
-                        <a href="face-detection.html" class="card-link">View Notes</a>
-                        <div class="interactive-buttons">
+                        <a href="face-detection.html" class="view-btn">View Research</a>
+                        <div class="interactive-group">
                             <a href="https://colab.research.google.com/github/ToshiJain15/opencv/blob/master/face%20detection.ipynb"
-                                target="_blank" class="btn-sm colab-btn">Run in Colab</a>
+                                target="_blank" class="action-btn colab">
+                                <i class="fab fa-google"></i> Colab
+                            </a>
                             <a href="https://mybinder.org/v2/gh/ToshiJain15/opencv/master?filepath=face%20detection.ipynb"
-                                target="_blank" class="btn-sm binder-btn">Try on Binder</a>
+                                target="_blank" class="action-btn binder">
+                                <i class="fas fa-cube"></i> Binder
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -44,18 +51,25 @@
 
             <!-- Project 2 -->
             <article class="project-card">
-                <img src="assets/video_playback.png" alt="Video Playback" class="card-image">
+                <div class="card-img-wrapper">
+                    <img src="assets/video_playback.png" alt="Video Analytics" class="card-image">
+                    <div class="card-overlay"></div>
+                </div>
                 <div class="card-content">
-                    <h2 class="card-title">Live Video Analytics</h2>
-                    <p class="card-description">Real-time video processing showcasing webcam capture, video file
-                        playback, and live face monitoring with interactive controls.</p>
+                    <h2 class="card-title">Temporal Vision</h2>
+                    <p class="card-description">Low-latency video stream orchestration. Features live-feed injection,
+                        frame-delta analysis, and interactive playback synchronization.</p>
                     <div class="card-actions">
-                        <a href="video-analytics.html" class="card-link">View Notes</a>
-                        <div class="interactive-buttons">
+                        <a href="video-analytics.html" class="view-btn">View Research</a>
+                        <div class="interactive-group">
                             <a href="https://colab.research.google.com/github/ToshiJain15/opencv/blob/master/playing%20video.ipynb"
-                                target="_blank" class="btn-sm colab-btn">Run in Colab</a>
+                                target="_blank" class="action-btn colab">
+                                <i class="fab fa-google"></i> Colab
+                            </a>
                             <a href="https://mybinder.org/v2/gh/ToshiJain15/opencv/master?filepath=playing%20video.ipynb"
-                                target="_blank" class="btn-sm binder-btn">Try on Binder</a>
+                                target="_blank" class="action-btn binder">
+                                <i class="fas fa-cube"></i> Binder
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -63,18 +77,25 @@
 
             <!-- Project 3 -->
             <article class="project-card">
-                <img src="assets/social_distancing_body.png" alt="Social Distancing Body" class="card-image">
+                <div class="card-img-wrapper">
+                    <img src="assets/social_distancing_body.png" alt="Crowd Analytics" class="card-image">
+                    <div class="card-overlay"></div>
+                </div>
                 <div class="card-content">
-                    <h2 class="card-title">Crowd Detection</h2>
-                    <p class="card-description">Full-body detection for monitoring crowd density and movement in public
-                        spaces, localized for social distancing analysis.</p>
+                    <h2 class="card-title">Human Topology</h2>
+                    <p class="card-description">Full-body structural analysis for high-density environments. Implements
+                        advanced cascades to identify humanoid patterns in complex backgrounds.</p>
                     <div class="card-actions">
-                        <a href="social-distancing-body.html" class="card-link">View Notes</a>
-                        <div class="interactive-buttons">
+                        <a href="social-distancing-body.html" class="view-btn">View Research</a>
+                        <div class="interactive-group">
                             <a href="https://colab.research.google.com/github/ToshiJain15/opencv/blob/master/social%20distancing%20body.ipynb"
-                                target="_blank" class="btn-sm colab-btn">Run in Colab</a>
+                                target="_blank" class="action-btn colab">
+                                <i class="fab fa-google"></i> Colab
+                            </a>
                             <a href="https://mybinder.org/v2/gh/ToshiJain15/opencv/master?filepath=social%20distancing%20body.ipynb"
-                                target="_blank" class="btn-sm binder-btn">Try on Binder</a>
+                                target="_blank" class="action-btn binder">
+                                <i class="fas fa-cube"></i> Binder
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -82,51 +103,72 @@
 
             <!-- Project 4 -->
             <article class="project-card">
-                <img src="assets/social_distancing_faces.png" alt="Social Distancing Faces" class="card-image">
+                <div class="card-img-wrapper">
+                    <img src="assets/social_distancing_faces.png" alt="Proximity Detection" class="card-image">
+                    <div class="card-overlay"></div>
+                </div>
                 <div class="card-content">
-                    <h2 class="card-title">Proximity Monitoring</h2>
-                    <p class="card-description">Sophisticated proximity detection calculating Euclidean distance between
-                        faces to flag social distancing violations in real-time.</p>
+                    <h2 class="card-title">Social Geometry</h2>
+                    <p class="card-description">Sophisticated Euclidean distance analysis applied to human proximity.
+                        Calculates real-time interpersonal distance with spectral violation flagging.</p>
                     <div class="card-actions">
-                        <a href="social-distancing-faces.html" class="card-link">View Notes</a>
-                        <div class="interactive-buttons">
+                        <a href="social-distancing-faces.html" class="view-btn">View Research</a>
+                        <div class="interactive-group">
                             <a href="https://colab.research.google.com/github/ToshiJain15/opencv/blob/master/social%20distancing%20faces.ipynb"
-                                target="_blank" class="btn-sm colab-btn">Run in Colab</a>
+                                target="_blank" class="action-btn colab">
+                                <i class="fab fa-google"></i> Colab
+                            </a>
                             <a href="https://mybinder.org/v2/gh/ToshiJain15/opencv/master?filepath=social%20distancing%20faces.ipynb"
-                                target="_blank" class="btn-sm binder-btn">Try on Binder</a>
+                                target="_blank" class="action-btn binder">
+                                <i class="fas fa-cube"></i> Binder
+                            </a>
                         </div>
                     </div>
                 </div>
             </article>
+
         </div>
     </main>
 
-    <section class="container" id="resources">
-        <h2 class="title-glow" style="font-size: 2rem; margin-top: 4rem;">Sample Resources</h2>
-        <p class="subtitle" style="margin-bottom: 2rem;">Download these sample assets to run the projects locally on
-            your machine.</p>
-        <div class="project-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
-            <div class="project-card" style="padding: 1rem; text-align: center;">
-                <p>Face Input (myfirst.png)</p>
-                <a href="assets/myfirst.png" download class="card-link"
-                    style="margin-top: 1rem; padding: 0.5rem 1rem; font-size: 0.8rem;">Download PNG</a>
-            </div>
-            <div class="project-card" style="padding: 1rem; text-align: center;">
-                <p>Crowd Input (TB.jpg)</p>
-                <a href="assets/TB.jpg" download class="card-link"
-                    style="margin-top: 1rem; padding: 0.5rem 1rem; font-size: 0.8rem;">Download JPG</a>
-            </div>
-            <div class="project-card" style="padding: 1rem; text-align: center;">
-                <p>Proximity Input (i.jpg)</p>
-                <a href="assets/i.jpg" download class="card-link"
-                    style="margin-top: 1rem; padding: 0.5rem 1rem; font-size: 0.8rem;">Download JPG</a>
+    <section class="resources-section">
+        <div class="container">
+            <h2 class="section-title">Development Assets</h2>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <i class="fas fa-file-image fa-2x" style="color: var(--primary); margin-bottom: 1rem;"></i>
+                    <h3>Base Identification</h3>
+                    <p style="color: var(--text-dim); margin-top: 1rem;">Primary visual source for facial classifier
+                        testing.</p>
+                    <a href="assets/myfirst.png" download class="dl-link">Download myfirst.png</a>
+                </div>
+                <div class="resource-card">
+                    <i class="fas fa-users-viewfinder fa-2x" style="color: var(--secondary); margin-bottom: 1rem;"></i>
+                    <h3>Crowd Context</h3>
+                    <p style="color: var(--text-dim); margin-top: 1rem;">Multivariate body detection sample dataset.</p>
+                    <a href="assets/TB.jpg" download class="dl-link">Download TB.jpg</a>
+                </div>
+                <div class="resource-card">
+                    <i class="fas fa-vector-square fa-2x" style="color: var(--accent); margin-bottom: 1rem;"></i>
+                    <h3>Geometric Proximity</h3>
+                    <p style="color: var(--text-dim); margin-top: 1rem;">Linear distance verification source image.</p>
+                    <a href="assets/i.jpg" download class="dl-link">Download i.jpg</a>
+                </div>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 OpenCV Vision Intelligence. Built for high-performance CV research.</p>
+        <div class="container">
+            <p>&copy; 2026 Vision Intelligence Hub. Powered by OpenCV & Neural Research.</p>
+            <div style="margin-top: 1.5rem; display: flex; justify-content: center; gap: 2rem;">
+                <a href="https://github.com/ToshiJain15/opencv" target="_blank"
+                    style="color: var(--text-dim); text-decoration: none;">
+                    <i class="fab fa-github"></i> Source Code
+                </a>
+            </div>
+        </div>
     </footer>
+
 </body>
 
 </html>

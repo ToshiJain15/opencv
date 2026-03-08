@@ -1,11 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap');
+
 :root {
-    --primary-color: #00f2fe;
-    --secondary-color: #4facfe;
-    --bg-dark: #0f172a;
-    --card-bg: rgba(30, 41, 59, 0.7);
-    --text-main: #f8fafc;
-    --text-muted: #94a3b8;
-    --accent-glow: rgba(0, 242, 254, 0.3);
+    --primary: #00f2fe;
+    --secondary: #4facfe;
+    --accent: #f9ab00;
+    --bg: #030712;
+    --card-bg: rgba(17, 24, 39, 0.7);
+    --text: #f3f4f6;
+    --text-dim: #9ca3af;
+    --glow: rgba(0, 242, 254, 0.4);
 }
 
 * {
@@ -15,164 +18,265 @@
 }
 
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background-color: var(--bg-dark);
-    color: var(--text-main);
+    font-family: 'Outfit', sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
     line-height: 1.6;
     overflow-x: hidden;
+    background-image:
+        radial-gradient(circle at 20% 20%, rgba(0, 242, 254, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 80% 80%, rgba(79, 172, 254, 0.05) 0%, transparent 40%);
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 0 2rem;
 }
 
+/* Header & Hero */
 header {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
+    position: relative;
     padding: 4rem 0;
-    background: radial-gradient(circle at top, #1e293b 0%, var(--bg-dark) 70%);
 }
 
-.title-glow {
-    font-size: 3.5rem;
+.hero-title {
+    font-size: clamp(3rem, 8vw, 6rem);
     font-weight: 800;
-    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    letter-spacing: -2px;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    margin-bottom: 1rem;
-    text-shadow: 0 0 20px var(--accent-glow);
+    filter: drop-shadow(0 0 15px var(--glow));
+    animation: titlePulse 4s infinite alternate;
 }
 
-.subtitle {
+@keyframes titlePulse {
+    from {
+        opacity: 0.8;
+        filter: drop-shadow(0 0 10px var(--glow));
+    }
+
+    to {
+        opacity: 1;
+        filter: drop-shadow(0 0 25px var(--glow));
+    }
+}
+
+.hero-subtitle {
     font-size: 1.25rem;
-    color: var(--text-muted);
-    max-width: 600px;
-    margin: 0 auto;
+    color: var(--text-dim);
+    max-width: 700px;
+    font-weight: 300;
 }
 
+/* Grid Layout */
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
+    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+    gap: 3rem;
+    padding: 4rem 0;
 }
 
+@media (max-width: 768px) {
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Glass Card */
 .project-card {
     background: var(--card-bg);
-    border-radius: 1.5rem;
+    border-radius: 2rem;
     overflow: hidden;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
     position: relative;
 }
 
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 2rem;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent, rgba(0, 242, 254, 0.2));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+}
+
 .project-card:hover {
-    transform: translateY(-10px);
-    border-color: var(--primary-color);
-    box-shadow: 0 10px 30px -10px var(--accent-glow);
+    transform: translateY(-15px) scale(1.02);
+    border-color: rgba(0, 242, 254, 0.3);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    background: rgba(17, 24, 39, 0.9);
+}
+
+.card-img-wrapper {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
 }
 
 .card-image {
     width: 100%;
-    height: 200px;
+    height: 100%;
     object-fit: cover;
-    filter: brightness(0.8);
-    transition: filter 0.3s ease;
+    transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .project-card:hover .card-image {
-    filter: brightness(1);
+    transform: scale(1.1);
+}
+
+.card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, var(--bg), transparent);
 }
 
 .card-content {
-    padding: 1.5rem;
+    padding: 2.5rem;
 }
 
 .card-title {
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 700;
-    margin-bottom: 0.75rem;
-    color: var(--primary-color);
+    margin-bottom: 1rem;
+    color: var(--primary);
 }
 
 .card-description {
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    margin-bottom: 1.5rem;
-}
-
-.card-link {
-    display: inline-block;
-    padding: 0.75rem 1.5rem;
-    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-    color: #fff;
-    text-decoration: none;
-    border-radius: 0.75rem;
-    font-weight: 600;
-    transition: opacity 0.3s ease;
-}
-
-.card-link:hover {
-    opacity: 0.9;
+    color: var(--text-dim);
+    margin-bottom: 2rem;
+    font-size: 1rem;
+    line-height: 1.8;
 }
 
 .card-actions {
     display: flex;
     flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Buttons */
+.view-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    color: var(--bg);
+    text-decoration: none;
+    border-radius: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.view-btn:hover {
+    filter: brightness(1.1);
+    box-shadow: 0 0 20px var(--glow);
+    transform: scale(1.02);
+}
+
+.interactive-group {
+    display: flex;
     gap: 1rem;
 }
 
-.interactive-buttons {
+.action-btn {
+    flex: 1;
     display: flex;
+    align-items: center;
+    justify-content: center;
     gap: 0.5rem;
-    flex-wrap: wrap;
-}
-
-.btn-sm {
-    padding: 0.4rem 0.8rem;
-    font-size: 0.75rem;
-    border-radius: 0.5rem;
+    padding: 0.75rem;
+    border-radius: 0.75rem;
     text-decoration: none;
     font-weight: 600;
+    font-size: 0.85rem;
     transition: all 0.3s ease;
     border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-dim);
 }
 
-.colab-btn {
-    background: rgba(249, 171, 0, 0.1);
+.colab {
     color: #f9ab00;
-    border-color: rgba(249, 171, 0, 0.3);
+    border-color: rgba(249, 171, 0, 0.2);
 }
 
-.colab-btn:hover {
+.colab:hover {
     background: #f9ab00;
     color: #fff;
 }
 
-.binder-btn {
-    background: rgba(245, 166, 35, 0.1);
+.binder {
     color: #f5a623;
-    border-color: rgba(245, 166, 35, 0.3);
+    border-color: rgba(245, 166, 35, 0.2);
 }
 
-.binder-btn:hover {
+.binder:hover {
     background: #f5a623;
     color: #fff;
 }
 
-footer {
-    text-align: center;
-    padding: 4rem 0;
-    color: var(--text-muted);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    margin-top: 4rem;
+/* Resources Section */
+.resources-section {
+    padding: 6rem 0;
 }
 
-@media (max-width: 768px) {
-    .title-glow {
-        font-size: 2.5rem;
-    }
+.section-title {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+    text-align: center;
+    background: linear-gradient(to right, #fff, var(--text-dim));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.resource-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.resource-card {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 2rem;
+    border-radius: 1.5rem;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.dl-link {
+    display: block;
+    margin-top: 1rem;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* Footer */
+footer {
+    padding: 8rem 0 4rem;
+    text-align: center;
+    color: var(--text-dim);
+    font-size: 0.9rem;
 }
